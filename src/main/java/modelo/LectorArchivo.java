@@ -3,7 +3,6 @@ package modelo;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import com.opencsv.bean.CsvToBeanBuilder;
 
@@ -39,30 +38,15 @@ public class LectorArchivo{
     }
     
     
-    public ArrayList<Pronostico> crearPronostico()
-    {
-        ArrayList<Pronostico> pronostico = new ArrayList<>();
-        
+    public Pronostico crearPronostico()
+    {	
+    	Pronostico pronostico = new Pronostico(); 
         for (DatosPronostico lineaDePronostico : this.lineasArchivo) 
         {
-//            Pronostico nuevoPronostico = new Pronostico(
-//            		lineaDePronostico.getEquipo1(),
-//            		lineaDePronostico.getGana1(),
-//            		lineaDePronostico.getEmpate(),
-//            		lineaDePronostico.getGana2(),
-//            		lineaDePronostico.getEquipo2()
-//            		);
-//            pronostico.add(nuevoPronostico);
-//            		
-        	System.out.println(lineaDePronostico.getEquipo1());
-        	System.out.println(lineaDePronostico.getGana1());
-        	System.out.println(lineaDePronostico.getEmpate());
-        	System.out.println(lineaDePronostico.getGana2());
-        	System.out.println(lineaDePronostico.getEquipo2());
-         }
-//        for (Pronostico pronostico2 : pronostico) {
-//			System.out.println(pronostico2.getEquipo1());
-//		}
+
+            		
+ 
+		}
         return pronostico;
         
     }   

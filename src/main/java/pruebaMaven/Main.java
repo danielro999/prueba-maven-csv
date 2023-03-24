@@ -1,8 +1,4 @@
 package pruebaMaven;
-
-import java.util.Iterator;
-
-import modelo.DatosPronostico;
 import modelo.LectorArchivo;
 
 public class Main {
