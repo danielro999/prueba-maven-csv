@@ -2,7 +2,7 @@ package modelo;
 
 import com.opencsv.bean.CsvBindByPosition;
 
-public class DatosResultados {
+public class DatosResultado {
 	@CsvBindByPosition(position = 0)
     private String equipo1Id;
     @CsvBindByPosition(position = 1)
@@ -19,6 +19,7 @@ public class DatosResultados {
     private String equipo2Nombre;
     @CsvBindByPosition(position = 7)
     private String equipo2Descpcion;
+    
 	public String getEquipo1Id() {
 		return equipo1Id;
 	}

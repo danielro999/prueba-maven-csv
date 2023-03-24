@@ -5,9 +5,21 @@ public class Pronostico {
 	private Equipo equipo;
 	private ResultadoEnum resultado;
 	
+	public Pronostico(Partido partido, Equipo equipo, DatosPronostico listaPronostico){
+		this.partido = partido;
+		this.equipo = equipo;
+		if (listaPronostico.getGana1().equals("X")) {
+			this.resultado = ResultadoEnum.GANADOR;
+		}
+		else if  (listaPronostico.getEmpate().equals("X")) {
+			this.resultado = ResultadoEnum.EMPATE;
+		} else {
+			this.resultado = ResultadoEnum.PERDEDOR;
+		}
+	}
 	public int puntos() {
 		int puntos = 0;
-		ResultadoEnum resultadoRealEquipo = this.partido.resultado(this.equipo);
+		ResultadoEnum resultadoRealEquipo = this.partido.resultadoEquipo1();
 		if (resultadoRealEquipo == this.resultado) {
 			puntos = 1;
 		}
