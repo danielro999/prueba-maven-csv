@@ -2,7 +2,7 @@ package modelo;
 
 import com.opencsv.bean.CsvBindByPosition;
 
-public class ArchivoPronostico {
+public class DatosPronostico {
 	  @CsvBindByPosition(position = 0)
 	    private String equipo1;
 	    @CsvBindByPosition(position = 1)

@@ -9,26 +9,26 @@ import com.opencsv.bean.CsvToBeanBuilder;
 
 public class LectorArchivo{
 
-	String rutaArchivo;
-    List<ArchivoPronostico> lineasArchivo;
+	String rutaPronostico;
+    List<DatosPronostico> lineasArchivo;// lista donde se cargan las lineas del archivo .csv
 
-    public LectorArchivo(String ruta) {
-        this.rutaArchivo = ruta;
+    public LectorArchivo(String rutaPronostico) {
+        this.rutaPronostico = rutaPronostico;
         this.lineasArchivo = new ArrayList<>();
     }
 
-    public void parsearArchivo() 
+    public void parsearArchivoPronostico() 
     {
-        List<ArchivoPronostico> listaDePronostico = null;
+        List<DatosPronostico> listaDePronostico = null;
         try {
             // En esta primera línea definimos el archivos que va a ingresar
-            listaDePronostico = new CsvToBeanBuilder(new FileReader(this.rutaArchivo))
+            listaDePronostico = new CsvToBeanBuilder(new FileReader(this.rutaPronostico))
                     // con esta configuración podemos skipear la primera línea de nuestro archivo CSV
                     .withSkipLines(1)
                     // con esta configuración podemos elegir cual es el caracter que vamos a usar para delimitar
                     .withSeparator(';')
                     // Es necesario definir el tipo de dato que va a generar el objeto que estamos queriendo parsear a partir del CSV
-                    .withType(ArchivoPronostico.class)
+                    .withType(DatosPronostico.class)
                     .build()
                     .parse();
 
@@ -38,30 +38,31 @@ public class LectorArchivo{
         this.lineasArchivo = listaDePronostico;
     }
     
-    public ArrayList<Pronostico> listarPronosticos()
+    
+    public ArrayList<Pronostico> crearPronostico()
     {
         ArrayList<Pronostico> pronostico = new ArrayList<>();
         
-        for (ArchivoPronostico lineaDePronostico : this.lineasArchivo) 
+        for (DatosPronostico lineaDePronostico : this.lineasArchivo) 
         {
-            Pronostico nuevoPronostico = new Pronostico(
-            		lineaDePronostico.getEquipo1(),
-            		lineaDePronostico.getGana1(),
-            		lineaDePronostico.getEmpate(),
-            		lineaDePronostico.getGana2(),
-            		lineaDePronostico.getEquipo2()
-            		);
-            pronostico.add(nuevoPronostico);
+//            Pronostico nuevoPronostico = new Pronostico(
+//            		lineaDePronostico.getEquipo1(),
+//            		lineaDePronostico.getGana1(),
+//            		lineaDePronostico.getEmpate(),
+//            		lineaDePronostico.getGana2(),
+//            		lineaDePronostico.getEquipo2()
+//            		);
+//            pronostico.add(nuevoPronostico);
 //            		
-//        	System.out.println(lineaDePronostico.getEquipo1());
-//        	System.out.println(lineaDePronostico.getGana1());
-//        	System.out.println(lineaDePronostico.getEmpate());
-//        	System.out.println(lineaDePronostico.getGana2());
-//        	System.out.println(lineaDePronostico.getEquipo2());
+        	System.out.println(lineaDePronostico.getEquipo1());
+        	System.out.println(lineaDePronostico.getGana1());
+        	System.out.println(lineaDePronostico.getEmpate());
+        	System.out.println(lineaDePronostico.getGana2());
+        	System.out.println(lineaDePronostico.getEquipo2());
          }
-        for (Pronostico pronostico2 : pronostico) {
-			System.out.println(pronostico2.getEquipo1());
-		}
+//        for (Pronostico pronostico2 : pronostico) {
+//			System.out.println(pronostico2.getEquipo1());
+//		}
         return pronostico;
         
     }   
