@@ -1,4 +1,6 @@
 package pruebaMaven;
+import modelo.DatosPronostico;
+import modelo.DatosResultado;
 import modelo.Equipo;
 import modelo.LectorArchivo;
 import modelo.Partido;
@@ -9,42 +11,46 @@ public class Main {
 	public static void main(String[] args) {
 	
 		LectorArchivo lectorArchivos = new LectorArchivo("pronostico.csv","resultados.csv");
+		DatosResultado argentinaArabia = lectorArchivos.listaResultado.get(0);
+		DatosResultado mexicoPolinia = lectorArchivos.listaResultado.get(1);
+		DatosPronostico pronosArgArab = lectorArchivos.listaPronostico.get(0);
+		DatosPronostico pronosMexPol = lectorArchivos.listaPronostico.get(1);
 		
 		Equipo equipo1 = new Equipo(
-				lectorArchivos.listaResultado.get(0).getEquipo1Nombre(),
-				lectorArchivos.listaResultado.get(0).getEquipo1Descpcion()
+				argentinaArabia.getEquipo1Nombre(),
+				argentinaArabia.getEquipo1Descpcion()
 				);
 		
 		Equipo equipo2 = new Equipo(
-				lectorArchivos.listaResultado.get(0).getEquipo2Nombre(),
-				lectorArchivos.listaResultado.get(0).getEquipo2Descpcion()
+				argentinaArabia.getEquipo2Nombre(),
+				argentinaArabia.getEquipo2Descpcion()
 				);
 		
 		Equipo equipo3 = new Equipo(
-				lectorArchivos.listaResultado.get(1).getEquipo1Nombre(),
-				lectorArchivos.listaResultado.get(1).getEquipo1Descpcion()
+				mexicoPolinia.getEquipo1Nombre(),
+				mexicoPolinia.getEquipo1Descpcion()
 				);
 		Equipo equipo4 = new Equipo(
-				lectorArchivos.listaResultado.get(1).getEquipo2Nombre(),
-				lectorArchivos.listaResultado.get(1).getEquipo2Descpcion()
+				mexicoPolinia.getEquipo2Nombre(),
+				mexicoPolinia.getEquipo2Descpcion()
 				);
 		
 		Partido partido1 = new Partido(
 				equipo1,
 				equipo2,
-				lectorArchivos.listaResultado.get(0).getEquipo1Goles(),
-				lectorArchivos.listaResultado.get(0).getEquipo2Goles()
+				argentinaArabia.getEquipo1Goles(),
+				argentinaArabia.getEquipo2Goles()
 				);
 		
 		Partido partido2 = new Partido(
 				equipo3,
 				equipo4,
-				lectorArchivos.listaResultado.get(1).getEquipo1Goles(),
-				lectorArchivos.listaResultado.get(1).getEquipo2Goles()
+				mexicoPolinia.getEquipo1Goles(),
+				mexicoPolinia.getEquipo2Goles()
 				);
 		
-		Pronostico pronostico1 = new Pronostico(partido1, equipo1, lectorArchivos.listaPronostico.get(0));
-		Pronostico pronostico2 = new Pronostico(partido2, equipo3, lectorArchivos.listaPronostico.get(1));
+		Pronostico pronostico1 = new Pronostico(partido1, equipo1, pronosArgArab);
+		Pronostico pronostico2 = new Pronostico(partido2, equipo3, pronosMexPol);
 
 		
 		System.out.println("pronostico argentina - arabia = " + pronostico1.puntos());
