@@ -3,21 +3,26 @@ package modelo;
 import com.opencsv.bean.CsvBindByPosition;
 
 public class DatosResultado {
+
 	@CsvBindByPosition(position = 0)
+	private String ronda_id;
+	@CsvBindByPosition(position = 1)
+	private String ronda_nro;
+	@CsvBindByPosition(position = 2)
     private String equipo1Id;
-    @CsvBindByPosition(position = 1)
-    private String equipo1Nombre;
-    @CsvBindByPosition(position = 2)
-    private String equipo1Descpcion;
     @CsvBindByPosition(position = 3)
-    private int equipo1Goles;
+    private String equipo1Nombre;
     @CsvBindByPosition(position = 4)
-    private int equipo2Goles;
+    private String equipo1Descpcion;
     @CsvBindByPosition(position = 5)
-    private String equipo2Id;
+    private int equipo1Goles;
     @CsvBindByPosition(position = 6)
-    private String equipo2Nombre;
+    private int equipo2Goles;
     @CsvBindByPosition(position = 7)
+    private String equipo2Id;
+    @CsvBindByPosition(position = 8)
+    private String equipo2Nombre;
+    @CsvBindByPosition(position = 9)
     private String equipo2Descpcion;
     
 	public String getEquipo1Id() {
@@ -68,7 +73,20 @@ public class DatosResultado {
 	public void setEquipo2Descpcion(String equipo2Descpcion) {
 		this.equipo2Descpcion = equipo2Descpcion;
 	}
-    
-    
-    
+
+	public void setRonda_id(String ronda_id) {
+		this.ronda_id = ronda_id;
+	}
+
+	public void setRonda_nro(String ronda_nro) {
+		this.ronda_nro = ronda_nro;
+	}
+
+	public String getRonda_id() {
+		return ronda_id;
+	}
+
+	public String getRonda_nro() {
+		return ronda_nro;
+	}
 }

@@ -19,11 +19,15 @@ public class Main {
 		DatosResultado argentinaArabia = lectorArchivos.listaResultado.get(0);
 //obtengo de la coleccion listaResultado el primer elemento que contiene los resultados del primer partido
 		DatosResultado mexicoPolinia = lectorArchivos.listaResultado.get(1);
+
+		DatosResultado argentinaMexico = lectorArchivos.listaResultado.get(2);
+		DatosResultado ArabiaPolonia = lectorArchivos.listaResultado.get(3);
+
 //resultados del segundo partido
-		DatosPronostico pronosArgArab = lectorArchivos.listaPronostico.get(0);
-//obtengo de la coleccion lista pronostico el primer elemento que contiene los pronosticos del primer partido
-		DatosPronostico pronosMexPol = lectorArchivos.listaPronostico.get(1);
-//pronosticos del segundo partido
+//		DatosPronostico pronosArgArab = lectorArchivos.listaPronostico.get(0);
+////obtengo de la coleccion lista pronostico el primer elemento que contiene los pronosticos del primer partido
+//		DatosPronostico pronosMexPol = lectorArchivos.listaPronostico.get(1);
+////pronosticos del segundo partido
 		
 		Equipo equipo1 = new Equipo(
 				argentinaArabia.getEquipo1Nombre(),
@@ -58,12 +62,12 @@ public class Main {
 				mexicoPolinia.getEquipo2Goles()
 				);
 		
-		Pronostico pronostico1 = new Pronostico(partido1, equipo1, pronosArgArab);
-		Pronostico pronostico2 = new Pronostico(partido2, equipo3, pronosMexPol);
+//		Pronostico pronostico1 = new Pronostico(partido1, equipo1, pronosArgArab);
+//		Pronostico pronostico2 = new Pronostico(partido2, equipo3, pronosMexPol);
 
-		
-		System.out.println("puntos por pronostico argentina - arabia = " + pronostico1.puntos());
-		System.out.println("puntos por pronostico mexico - polonia = " + pronostico2.puntos());
+		System.out.println(argentinaMexico.getRonda_id());
+//
+
 
 		Connection conexion = null;
 		Statement consulta = null;
@@ -109,6 +113,7 @@ public class Main {
 				if (consulta != null)
 					consulta.close();
 			} catch (SQLException se2) {
+
 			}
 			try {
 				if (conexion != null)
