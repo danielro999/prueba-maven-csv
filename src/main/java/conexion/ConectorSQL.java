@@ -1,4 +1,4 @@
-package coneccion;
+package conexion;
 
 public class ConectorSQL {
 

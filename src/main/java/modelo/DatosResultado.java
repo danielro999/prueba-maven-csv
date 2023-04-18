@@ -2,10 +2,13 @@ package modelo;
 
 import com.opencsv.bean.CsvBindByPosition;
 
+import java.util.Arrays;
+import java.util.List;
+
 public class DatosResultado {
 
 	@CsvBindByPosition(position = 0)
-	private String ronda_id;
+	private int ronda_id;
 	@CsvBindByPosition(position = 1)
 	private String ronda_nro;
 	@CsvBindByPosition(position = 2)
@@ -74,7 +77,7 @@ public class DatosResultado {
 		this.equipo2Descpcion = equipo2Descpcion;
 	}
 
-	public void setRonda_id(String ronda_id) {
+	public void setRonda_id(int ronda_id) {
 		this.ronda_id = ronda_id;
 	}
 
@@ -82,7 +85,7 @@ public class DatosResultado {
 		this.ronda_nro = ronda_nro;
 	}
 
-	public String getRonda_id() {
+	public int getRonda_id() {
 		return ronda_id;
 	}
 

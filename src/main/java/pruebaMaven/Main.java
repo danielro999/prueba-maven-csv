@@ -1,72 +1,40 @@
 package pruebaMaven;
-import modelo.DatosPronostico;
+//import modelo.DatosPronostico;
 import modelo.DatosResultado;
 import modelo.Equipo;
 import modelo.LectorArchivo;
 import modelo.Partido;
-import modelo.Pronostico;
+//import modelo.Pronostico;
 
 import java.sql.*;
+import java.util.List;
 
-import static coneccion.ConectorSQL.*;
+import static conexion.ConectorSQL.*;
 
 public class Main {
 
 	public static void main(String[] args) {
-	
-		LectorArchivo lectorArchivos = new LectorArchivo("pronostico.csv","resultados.csv");
-//toma los dos archivos csv y los parcea a colecciones del tipo datosPronostico (listaPronostico) y datosResultados(listaResultado)
+
+		LectorArchivo lectorArchivos = new LectorArchivo("resultados.csv");		//LectorArchivo lectorArchivos = new LectorArchivo("pronostico.csv","resultados.csv");
+		//toma los dos archivos csv y los parcea a colecciones del tipo datosPronostico (listaPronostico) y datosResultados(listaResultado)
+
 		DatosResultado argentinaArabia = lectorArchivos.listaResultado.get(0);
-//obtengo de la coleccion listaResultado el primer elemento que contiene los resultados del primer partido
+		//obtengo de la coleccion listaResultado el primer elemento que contiene los resultados del primer partido
+
 		DatosResultado mexicoPolinia = lectorArchivos.listaResultado.get(1);
 
 		DatosResultado argentinaMexico = lectorArchivos.listaResultado.get(2);
 		DatosResultado ArabiaPolonia = lectorArchivos.listaResultado.get(3);
+		//System.out.println(argentinaMexico.getRonda_id());
 
-//resultados del segundo partido
-//		DatosPronostico pronosArgArab = lectorArchivos.listaPronostico.get(0);
-////obtengo de la coleccion lista pronostico el primer elemento que contiene los pronosticos del primer partido
-//		DatosPronostico pronosMexPol = lectorArchivos.listaPronostico.get(1);
-////pronosticos del segundo partido
-		
-		Equipo equipo1 = new Equipo(
-				argentinaArabia.getEquipo1Nombre(),
-				argentinaArabia.getEquipo1Descpcion()
-				);
-		
-		Equipo equipo2 = new Equipo(
-				argentinaArabia.getEquipo2Nombre(),
-				argentinaArabia.getEquipo2Descpcion()
-				);
-		
-		Equipo equipo3 = new Equipo(
-				mexicoPolinia.getEquipo1Nombre(),
-				mexicoPolinia.getEquipo1Descpcion()
-				);
-		Equipo equipo4 = new Equipo(
-				mexicoPolinia.getEquipo2Nombre(),
-				mexicoPolinia.getEquipo2Descpcion()
-				);
-		
-		Partido partido1 = new Partido(
-				equipo1,
-				equipo2,
-				argentinaArabia.getEquipo1Goles(),
-				argentinaArabia.getEquipo2Goles()
-				);
-		
-		Partido partido2 = new Partido(
-				equipo3,
-				equipo4,
-				mexicoPolinia.getEquipo1Goles(),
-				mexicoPolinia.getEquipo2Goles()
-				);
-		
-//		Pronostico pronostico1 = new Pronostico(partido1, equipo1, pronosArgArab);
-//		Pronostico pronostico2 = new Pronostico(partido2, equipo3, pronosMexPol);
+		List<Partido>  resultados = lectorArchivos.crearListaResultadosPartidos();
 
-		System.out.println(argentinaMexico.getRonda_id());
-//
+
+
+
+
+
+
 
 
 		Connection conexion = null;
@@ -83,7 +51,7 @@ public class Main {
 			System.out.println("Creating statement...");
 			consulta = conexion.createStatement();
 			String sql;
-			sql = "SELECT nombre FROM prode.equipo";
+			sql = "SELECT nombre, id_equipo FROM prode.equipo inner join prode.pronostico";
 
 			//En la variable resultado obtendremos las distintas filas que nos devolvió la base
 			ResultSet resultado = consulta.executeQuery(sql);
@@ -93,11 +61,11 @@ public class Main {
 				// Pbtener el valor de cada columna
 
 				String Nombre = resultado.getString("nombre");
-
+				String Id_Equipo1 = resultado.getString("id_equipo");
 
 				// Mostrar los valores obtenidos
 
-				System.out.println("nombre: " + Nombre);
+			//	System.out.println("nombre: " + Nombre + " " + Id_Equipo1);
 
 			}
 			// Esto se utiliza par cerrar la conexión con la base de datos

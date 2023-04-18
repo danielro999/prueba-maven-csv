@@ -1,12 +1,14 @@
 package modelo;
 
 public class Partido {
+	private int ronda_id;
 	private Equipo equipo1;
 	private Equipo equipo2;
 	private int golesEquipo1;
 	private int golesEquipo2;
 	
-	public Partido (Equipo equipo1, Equipo equipo2,int golesEquipo1, int golesEquipo2) {
+	public Partido (int ronda_id, Equipo equipo1, Equipo equipo2,int golesEquipo1, int golesEquipo2) {
+		this.ronda_id = ronda_id;
 		this.equipo1 = equipo1;
 		this.golesEquipo1 = golesEquipo1;
 		this.equipo2 = equipo2;
@@ -58,5 +60,5 @@ public class Partido {
 		this.golesEquipo2 = golesEquipo2;
 	}
 
-	
+	public int getRonda_id() { return this.ronda_id; }
 }
