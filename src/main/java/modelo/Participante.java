@@ -17,8 +17,15 @@ public class Participante {
     private List<Pronostico> pronosticos;
 
     public Participante(String nombre) {
+        this.nombre = nombre;
         this.pronosticos = new ArrayList<>();
     }
 
+    public String getNombre() {
+        return nombre;
+    }
 
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
 }

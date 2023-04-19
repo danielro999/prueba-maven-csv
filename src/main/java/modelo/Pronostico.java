@@ -2,18 +2,29 @@ package modelo;
 
 public class Pronostico {
 	private String nro_ronda;
-	private String participante;
+	private Participante participante;
 	private Partido partido;
 	private Equipo equipo1;
 	private ResultadoEnum resultado;
-	
-	public Pronostico(Partido partido, Equipo equipo, DatosPronostico listaPronostico){
-		this.partido = partido;
-		this.equipo1 = equipo;
-		if (listaPronostico.getGana1().equals("X")) {
+	private Equipo equipo2;
+
+	public Equipo getEquipo2() {
+		return equipo2;
+	}
+
+	public void setEquipo2(Equipo equipo2) {
+		this.equipo2 = equipo2;
+	}
+
+	public Pronostico(String nro_ronda, Participante participante, Equipo equipo1, String resultado, Equipo equipo2){
+		this.nro_ronda = nro_ronda;
+		this.participante = participante;
+		this.equipo1 = equipo1;
+		this.equipo2 = equipo2;
+		if (resultado.equals("GANADOR")) {
 			this.resultado = ResultadoEnum.GANADOR;
 		}
-		else if  (listaPronostico.getEmpate().equals("X")) {
+		else if  (resultado.equals("EMPATE")) {
 			this.resultado = ResultadoEnum.EMPATE;
 		} else {
 			this.resultado = ResultadoEnum.PERDEDOR;
@@ -27,6 +38,16 @@ public class Pronostico {
 		}
 		return puntos;
 	}
+
+
+
+	public String getNro_ronda() {return nro_ronda;}
+
+	public void setNro_ronda(String nro_ronda) {this.nro_ronda = nro_ronda;}
+
+	public Participante getParticipante() {return participante;}
+
+	public void setParticipante(Participante participante) {this.participante = participante;}
 
 	public Partido getPartido() {
 		return partido;

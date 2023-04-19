@@ -56,7 +56,7 @@ public class LectorArchivo{
                 );
         this.listaPartidos.add(partido);
         }
-        for (Partido partido : listaPartidos) {System.out.println(partido.getEquipo1().getNombre());}
+       // for (Partido partido : listaPartidos) {System.out.println(partido.getEquipo1().getNombre() + partido.resultadoEquipo1());}
 
         return listaPartidos;
     }
