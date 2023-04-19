@@ -1,13 +1,15 @@
 package modelo;
 
 public class Pronostico {
+	private String nro_ronda;
+	private String participante;
 	private Partido partido;
-	private Equipo equipo;
+	private Equipo equipo1;
 	private ResultadoEnum resultado;
 	
 	public Pronostico(Partido partido, Equipo equipo, DatosPronostico listaPronostico){
 		this.partido = partido;
-		this.equipo = equipo;
+		this.equipo1 = equipo;
 		if (listaPronostico.getGana1().equals("X")) {
 			this.resultado = ResultadoEnum.GANADOR;
 		}
@@ -34,12 +36,12 @@ public class Pronostico {
 		this.partido = partido;
 	}
 
-	public Equipo getEquipo() {
-		return equipo;
+	public Equipo getEquipo1() {
+		return equipo1;
 	}
 
-	public void setEquipo(Equipo equipo) {
-		this.equipo = equipo;
+	public void setEquipo1(Equipo equipo1) {
+		this.equipo1 = equipo1;
 	}
 
 	public ResultadoEnum getResultado() {
