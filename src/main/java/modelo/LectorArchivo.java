@@ -10,6 +10,7 @@ public class LectorArchivo{
     private final String rutaResultado;
     public List<DatosResultado> listaResultado;  //  lista con los resultados del archivo csv
     private final List <Partido> listaPartidos;
+    private static List<Pronostico> pronosticoList;
 
 
     public LectorArchivo( String rutaResultado) {
@@ -59,6 +60,20 @@ public class LectorArchivo{
        // for (Partido partido : listaPartidos) {System.out.println(partido.getEquipo1().getNombre() + partido.resultadoEquipo1());}
 
         return listaPartidos;
+    }
+    public static List<Pronostico> crearPronosticosList(List<String[]> listaPronosticosString) {
+        //      pronostico = {fase, nro_ronda, nombre, id_Equipo1, resultado, id_Equipo2 }
+        pronosticoList = new ArrayList<>();
+        for (String[] pronosticoString : listaPronosticosString) {
+            String participante = pronosticoString[2];
+            Equipo equipo1 = new Equipo(pronosticoString[3]);
+            Equipo equipo2 = new Equipo(pronosticoString[5]);
+
+            // System.out.println(equipo1.getNombre()+" "+equipo2.getNombre());
+            Pronostico pronostico = new Pronostico(pronosticoString[1], participante, equipo1, pronosticoString[4], equipo2);
+            pronosticoList.add(pronostico);
+        }
+        return pronosticoList;
     }
 }
     

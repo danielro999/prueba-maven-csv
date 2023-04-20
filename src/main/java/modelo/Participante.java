@@ -6,28 +6,17 @@ import java.util.List;
 public class Participante {
     private String nombre;
     private List<Pronostico> pronosticos;
-
+    public Participante(){};
     public Participante(String nombre) {
         this.nombre = nombre;
         this.pronosticos = new ArrayList<>();
     }
 
-    public int puntosTotales ( String nombre, List<Participante> listParticipantes){
+    public int puntosTotales ( ){
         int total = 0;
-        String nombrePart = "";
-        for (int i = 0; i < listParticipantes.size(); i++){
-            Participante participante = listParticipantes.get(i);
-            String participanteNombre = listParticipantes.get(i).getNombre();
-
-            if(participanteNombre.equals(nombre)){
-                nombrePart = nombre;
-                for (Pronostico proParticipanta : participante.getPronosticos())
-                {
-                   total+= proParticipanta.puntos();
-                }
-            }
+        for (Pronostico pronostico: pronosticos) {
+            total+=pronostico.puntos();
         }
-        System.out.println(total + " " + nombrePart );
         return total;
     }
 

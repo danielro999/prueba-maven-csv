@@ -4,7 +4,7 @@ import conexion.ConsultaSQL;
 import modelo.*;
 
 import java.util.List;
-
+import java.util.Set;
 
 
 public class Main {
@@ -20,12 +20,18 @@ public class Main {
 
 		List<String[]> listaPronosticosString = consultaSQL.consulta();
 
-		List<Pronostico> pronosticoList= calculo.crearPronosticosList(listaPronosticosString);
+		List<Pronostico> pronosticoList= LectorArchivo.crearPronosticosList(listaPronosticosString);
+
+		List<Participante> participanteList = calculo.instancidorParticipante(listaPronosticosString);
 
 		calculo.puntosPorPartido(pronosticoList, partidoList);
 
-		calculo.puntosTotales("mariana", 2);
-		calculo.puntosTotales("pedro", 2);
+		calculo.agregarPuntosParticipante(participanteList,pronosticoList);
+
+		calculo.puntosFinalParticipantes(participanteList);
+
+
+
 
 
 	}
