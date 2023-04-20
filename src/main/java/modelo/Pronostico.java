@@ -8,13 +8,7 @@ public class Pronostico {
 	private ResultadoEnum resultado;
 	private Equipo equipo2;
 
-	public Equipo getEquipo2() {
-		return equipo2;
-	}
-
-	public void setEquipo2(Equipo equipo2) {
-		this.equipo2 = equipo2;
-	}
+	private int puntos;
 
 	public Pronostico(String nro_ronda, Participante participante, Equipo equipo1, String resultado, Equipo equipo2){
 		this.nro_ronda = nro_ronda;
@@ -36,10 +30,14 @@ public class Pronostico {
 		if (resultadoRealEquipo == this.resultado) {
 			puntos = 1;
 		}
+		this.puntos = puntos;
+
 		return puntos;
 	}
 
+	public Equipo getEquipo2() {return equipo2;}
 
+	public void setEquipo2(Equipo equipo2) {this.equipo2 = equipo2;}
 
 	public String getNro_ronda() {return nro_ronda;}
 

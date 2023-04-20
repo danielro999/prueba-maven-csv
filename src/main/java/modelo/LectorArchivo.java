@@ -45,8 +45,8 @@ public class LectorArchivo{
     public List<Partido> crearListaResultadosPartidos()  {
 // agrega a listaPartidos cada partido con los resultados
         for ( DatosResultado resultados : this.listaResultado){
-                Equipo equipo2 = new Equipo(resultados.getEquipo2Nombre(), resultados.getEquipo1Descpcion());
                 Equipo equipo1 = new Equipo(resultados.getEquipo1Nombre(), resultados.getEquipo1Descpcion());
+                Equipo equipo2 = new Equipo(resultados.getEquipo2Nombre(), resultados.getEquipo1Descpcion());
                 Partido partido = new Partido(
                         resultados.getRonda_id(),
                         equipo1,

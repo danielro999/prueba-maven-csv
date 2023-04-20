@@ -7,6 +7,7 @@ import static conexion.ConectorSQL.*;
 
 public class ConsultaSQL {
     private List<String[]> listaPronostico;
+
     public List<String[]> consulta (){
         Connection conexion = null;
         Statement consulta = null;
@@ -33,7 +34,6 @@ public class ConsultaSQL {
 
             // Obtener las distintas filas de la consulta
             while (pronosticoPartido.next()) {
-                //String registrosSQL [] = new String[6];
                 // obtener el valor de cada columna
                 String fase = pronosticoPartido.getString("fase");
                 String nro_ronda = pronosticoPartido.getString("nro_ronda");
