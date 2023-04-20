@@ -1,6 +1,5 @@
 package LogicaCalculoFinal;
 
-import modelo.Equipo;
 import modelo.Participante;
 import modelo.Partido;
 import modelo.Pronostico;
@@ -15,10 +14,7 @@ import java.util.Set;
 public class Calculo {
     private List<Participante> participanteList;
 
-
-
-
-    public List<Participante> instancidorParticipante(List<String[]> listaPronosticosString) {
+    public List<Participante> instancidorParticipantes(List<String[]> listaPronosticosString) {
         participanteList = new ArrayList<>();
         //set para no repetir los nombres
         Set<String> setNombres = new HashSet<>();
@@ -64,8 +60,7 @@ public class Calculo {
     }
 
     public void puntosFinalParticipantes(List<Participante> participanteList) {
-        for (Participante participante :
-                participanteList) {
+        for (Participante participante : participanteList) {
             System.out.println(participante.getNombre());
             System.out.println(participante.puntosTotales());
 
