@@ -2,6 +2,8 @@ package modelo;
 
 public class Pronostico {
 	private String nro_ronda;
+
+	private String fase;
 	private String participante;
 	private Partido partido;
 	private Equipo equipo1;
@@ -10,7 +12,8 @@ public class Pronostico {
 
 	private int puntos;
 
-	public Pronostico(String nro_ronda, String participante, Equipo equipo1, String resultado, Equipo equipo2){
+	public Pronostico(String nro_ronda,String fase, String participante, Equipo equipo1, String resultado, Equipo equipo2){
+		this.fase = fase;
 		this.nro_ronda = nro_ronda;
 		this.participante = participante;
 		this.equipo1 = equipo1;
@@ -70,5 +73,20 @@ public class Pronostico {
 	public void setResultado(ResultadoEnum resultado) {
 		this.resultado = resultado;
 	}
-  
+
+	public String getFase() {
+		return fase;
+	}
+
+	public void setFase(String fase) {
+		this.fase = fase;
+	}
+
+	public int getPuntos() {
+		return puntos;
+	}
+
+	public void setPuntos(int puntos) {
+		this.puntos = puntos;
+	}
 }

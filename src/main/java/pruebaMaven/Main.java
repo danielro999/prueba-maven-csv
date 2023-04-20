@@ -6,7 +6,9 @@ import modelo.*;
 import serealizacion.ConfigConexionDB;
 import serealizacion.ParseoJson;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Stream;
 
 
 public class Main {
@@ -36,16 +38,15 @@ public class Main {
 
 		calculo.puntosPorPartido(pronosticoList, partidoList);
 
-		calculo.agregarPuntosParticipante(participanteList,pronosticoList);
+		calculo.agregarPronosticosParticipante(participanteList,pronosticoList);
 
 		calculo.puntosFinalParticipantes(participanteList);
 
 
-
-
-
-
 	}
 }
+
+
+
 
 

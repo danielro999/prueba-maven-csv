@@ -36,10 +36,12 @@ public class Calculo {
                 String partidoPronosticoEq1 = pronostico.getEquipo1().getNombre();
                 String partidoPronosticoEq2 = pronostico.getEquipo2().getNombre();
                 String participanteNombre = pronostico.getParticipante();
+                String fase = pronostico.getFase();
+                String ronda = pronostico.getNro_ronda();
 
                 if (partidoEq1.equals(partidoPronosticoEq1) && partidoEq2.equals(partidoPronosticoEq2)) {
                     pronostico.setPartido(partido);
-                    System.out.println("Pronostico " + participanteNombre + " => " + partidoEq1 + " " + pronostico.getResultado() + " vs " + partidoPronosticoEq2);
+                    System.out.println("Pronostico " + participanteNombre + " => "+ fase + " ronda " + ronda + " " + partidoEq1 + " " + pronostico.getResultado() + " vs " + partidoPronosticoEq2);
                     System.out.println("resultado real => " + partido.resultadoEquipo1());
                     System.out.println("puntos por acierto => " + pronostico.puntos() + "\n");
                 }
@@ -47,7 +49,7 @@ public class Calculo {
         }
     }
 
-    public void agregarPuntosParticipante(List<Participante> participanteList, List<Pronostico> pronosticoList){
+    public void agregarPronosticosParticipante(List<Participante> participanteList, List<Pronostico> pronosticoList){
         for (Participante participante: participanteList) {
 //			System.out.println("nombre " +participante.getNombre());
             for (Pronostico pronostico: pronosticoList) {
@@ -61,8 +63,11 @@ public class Calculo {
 
     public void puntosFinalParticipantes(List<Participante> participanteList) {
         for (Participante participante : participanteList) {
-            System.out.println(participante.getNombre());
-            System.out.println(participante.puntosTotales());
+            int puntoExtras =  participante.puntosExtras();
+            int puntosPartidos = participante.puntosPartidos();
+            int total = puntosPartidos + puntoExtras;
+            String nombreParticipante = participante.getNombre();
+            System.out.println( nombreParticipante +" puntos por partidos " + puntosPartidos + " + " + "puntos Extras " +puntoExtras + " = " + total + "\n");
 
         }
 

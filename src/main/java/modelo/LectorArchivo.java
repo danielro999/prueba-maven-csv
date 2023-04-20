@@ -70,7 +70,7 @@ public class LectorArchivo{
             Equipo equipo2 = new Equipo(pronosticoString[5]);
 
             // System.out.println(equipo1.getNombre()+" "+equipo2.getNombre());
-            Pronostico pronostico = new Pronostico(pronosticoString[1], participante, equipo1, pronosticoString[4], equipo2);
+            Pronostico pronostico = new Pronostico(pronosticoString[1], pronosticoString [0],participante, equipo1, pronosticoString[4], equipo2);
             pronosticoList.add(pronostico);
         }
         return pronosticoList;
