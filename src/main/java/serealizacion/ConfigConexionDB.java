@@ -8,9 +8,7 @@ public class ConfigConexionDB {
     public ConfigConexionDB() {
     }
 
-    public String getDB_URL() {
-        return DB_URL;
-    }
+    public String getDB_URL() {return DB_URL;}
 
     public void setDB_URL(String DB_URL) {
         this.DB_URL = DB_URL;

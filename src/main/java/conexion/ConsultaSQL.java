@@ -1,4 +1,7 @@
 package conexion;
+import serealizacion.ConfigConexionDB;
+import serealizacion.ParseoJson;
+
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -8,7 +11,7 @@ import static conexion.ConectorSQL.*;
 public class ConsultaSQL {
     private List<String[]> listaPronostico;
 
-    public List<String[]> consulta (){
+    public List<String[]> consulta (ConfigConexionDB configConexionDB){
         Connection conexion = null;
         Statement consulta = null;
         this.listaPronostico = new ArrayList<>();
@@ -17,7 +20,7 @@ public class ConsultaSQL {
             // Abrir la conexión
             System.out.println("conectando a la base de datos...");
 
-            conexion = DriverManager.getConnection(DB_URL, USER, PASS);
+            conexion = DriverManager.getConnection(configConexionDB.getDB_URL(), configConexionDB.getUSER(), configConexionDB.getPASS());
 
             // Ejecutar una consulta
             System.out.println("Creating statement...");
