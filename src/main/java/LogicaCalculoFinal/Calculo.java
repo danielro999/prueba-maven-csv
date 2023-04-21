@@ -3,7 +3,7 @@ package LogicaCalculoFinal;
 import modelo.Participante;
 import modelo.Partido;
 import modelo.Pronostico;
-
+import serealizacion.ConfigPuntos;
 
 
 import java.util.ArrayList;
@@ -14,7 +14,7 @@ import java.util.Set;
 public class Calculo {
     private List<Participante> participanteList;
 
-    public List<Participante> instancidorParticipantes(List<String[]> listaPronosticosString) {
+    public List<Participante> instancidorParticipantes(List<String[]> listaPronosticosString, ConfigPuntos configPuntos) {
         participanteList = new ArrayList<>();
         //set para no repetir los nombres
         Set<String> setNombres = new HashSet<>();
@@ -22,7 +22,7 @@ public class Calculo {
             setNombres.add(pronosticoString[2]);
         }
         for (String nombre : setNombres) {
-            Participante participante = new Participante(nombre);
+            Participante participante = new Participante(nombre, configPuntos);
             participanteList.add(participante);
         }
         return participanteList;

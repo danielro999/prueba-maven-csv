@@ -1,8 +1,6 @@
 package serealizacion;
-
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -23,7 +21,7 @@ public class ParseoJson {
         return configDBParseada;
     }
 
-public void configPuntajesJson(String rutaJson) throws JsonProcessingException {
+public ConfigPuntos configPuntajesJson(String rutaJson) throws JsonProcessingException {
     String json = null;
     try {
         for (String linea : Files.readAllLines(Paths.get(rutaJson)))
@@ -38,6 +36,7 @@ public void configPuntajesJson(String rutaJson) throws JsonProcessingException {
     ConfigPuntos configDBParseada = mapper.readValue(json, ConfigPuntos.class);
     System.out.println("Puntos por acertar partido = " + configDBParseada.getPuntosPartido());
     System.out.println("Puntos extras por acertar toda la ronda = " + configDBParseada.getPuntosRonda());
-    System.out.println("Puntos extras por acertar las todas fases = " + configDBParseada.getPuntosfase());
-}
+    System.out.println("Puntos extras por acertar las todas fases = " + configDBParseada.getPuntosfase()+ "\n");
+    return configDBParseada;
+    }
 }
