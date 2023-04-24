@@ -2,9 +2,11 @@
 
 <h3>Esquemas<h3>
 
-[Link](https://drive.google.com/file/d/1b2Ss12_kjdYnmFD2imOndcH2X94pTYT8/view?usp=sharing)
+[Link esquema](https://drive.google.com/file/d/1b2Ss12_kjdYnmFD2imOndcH2X94pTYT8/view?usp=sharing)
   
 
+
+<h3> Sentencias basicas SQL <h3>
   ~~~
 CREATE DATABASE prode; CREATE TABLE prode.equipo(
     id_equipo INT PRIMARY KEY AUTO_INCREMENT,
