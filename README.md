@@ -7,6 +7,7 @@
 
 
 <h3> Sentencias basicas SQL <h3>
+  
   ~~~
 CREATE DATABASE prode; CREATE TABLE prode.equipo(
     id_equipo INT PRIMARY KEY AUTO_INCREMENT,
@@ -55,7 +56,7 @@ id_pronostico INT PRIMARY KEY AUTO_INCREMENT,
     resultado CHAR(8),
     CONSTRAINT fk_equipo1 FOREIGN KEY(id_equipo1) REFERENCES equipo(id_equipo),
     CONSTRAINT fk_equipo2 FOREIGN KEY(id_equipo2) REFERENCES equipo(id_equipo),
-    CONSTRAINT fk_participante FOREIGN KEY(id_participante) REFERENCES participante(id_participante),
+    CONSTRAINT fk_participante FOREIGN KEY(id_participante) REFERENCES~~~CREATE DATABASE prode; CREATE TABLE prode.equipo( participante(id_participante),
     CONSTRAINT fk_ronda FOREIGN KEY(nro_ronda) REFERENCES ronda(nro_ronda)
   );
   ~~~
@@ -66,7 +67,7 @@ id_pronostico INT PRIMARY KEY AUTO_INCREMENT,
 USE prode;
 
 INSERT INTO equipo (nombre) VALUES("argentina");
-INSERT INTO equipo (nombre) VALUES("arabia saudita");
+INSERT INTO equipo (nombre) VAL~~~CREATE DATABASE prode; CREATE TABLE prode.equipo(UES("arabia saudita");
 INSERT INTO equipo (nombre)VALUES ("polonia");
 INSERT INTO equipo (nombre) VALUES("mexico");
 
