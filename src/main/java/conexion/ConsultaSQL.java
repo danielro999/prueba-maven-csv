@@ -75,7 +75,7 @@ public class ConsultaSQL {
                 se.printStackTrace();
             }
         }
-        System.out.println("Fin de la ejecucción");
+        System.out.println("Fin de la ejecucción" + "\n");
         return listaPronostico;
     }
 

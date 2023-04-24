@@ -19,7 +19,7 @@ public class Main {
 //		configuracion base de datos
 		ConfigConexionDB configConexionDB = parseoJson.configConexionDBJson("configConexionDBJson.json");
 
-		//parseo del archivo csv
+		//parseo del archivo csv, lee el archivo resultados y crea el objeto DatosResultados, con propiedades String e int
 		LectorArchivo lectorArchivos = new LectorArchivo("resultados.csv");
 
 		ConsultaSQL consultaSQL = new ConsultaSQL();
