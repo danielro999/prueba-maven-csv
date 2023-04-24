@@ -4,6 +4,8 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Pattern;
+
 import com.opencsv.bean.CsvToBeanBuilder;
 
 public class LectorArchivo{
@@ -44,12 +46,14 @@ public class LectorArchivo{
     }
 
     public List<Partido> crearListaResultadosPartidos()  {
+      //  String regex= "[A-Z][a-z]*";
+
 // agrega a listaPartidos cada partido con los resultados
         for ( DatosResultado resultados : this.listaResultado){
+    //            expresionRegular(regex, resultados.getEquipo1Descpcion());
                 Equipo equipo1 = new Equipo(resultados.getEquipo1Nombre(), resultados.getEquipo1Descpcion());
                 Equipo equipo2 = new Equipo(resultados.getEquipo2Nombre(), resultados.getEquipo1Descpcion());
-                Partido partido = new Partido(
-                        resultados.getRonda_id(),
+                Partido partido = new Partido(resultados.getRonda_id(),
                         equipo1,
                         equipo2,
                         resultados.getEquipo1Goles(),
@@ -57,10 +61,22 @@ public class LectorArchivo{
                 );
         this.listaPartidos.add(partido);
         }
-       // for (Partido partido : listaPartidos) {System.out.println(partido.getEquipo1().getNombre() + partido.resultadoEquipo1());}
-
         return listaPartidos;
     }
+
+    private boolean expresionRegular (String regex, String descripcion){
+        final Pattern pattern = Pattern.compile(regex);
+        boolean resultado = pattern.matcher(descripcion).matches();
+        if(resultado){
+            System.out.println("Cumple con que Descripcion la primer letra sea mayuscula" + descripcion);
+        }
+        else {
+            System.out.println("NO cumple con que Descripcion la primer letra sea mayuscula"+ descripcion);
+        }
+        return resultado;
+    }
+
+
     public static List<Pronostico> crearPronosticosList(List<String[]> listaPronosticosString) {
         //      pronostico = {fase, nro_ronda, nombre, id_Equipo1, resultado, id_Equipo2 }
         pronosticoList = new ArrayList<>();
