@@ -29,6 +29,7 @@ public class Calculo {
     }
 
     public void puntosPorPartido(List<Pronostico> pronosticoList, List<Partido> partidoList) {
+
         for (Pronostico pronostico : pronosticoList) {
             for (Partido partido : partidoList) {
                 String partidoEq1 = partido.getEquipo1().getNombre();
@@ -41,12 +42,14 @@ public class Calculo {
 
                 if (partidoEq1.equals(partidoPronosticoEq1) && partidoEq2.equals(partidoPronosticoEq2)) {
                     pronostico.setPartido(partido);
-                    System.out.println("Pronostico " + participanteNombre + " => "+ fase + " ronda " + ronda + " " + partidoEq1 + " " + pronostico.getResultado() + " vs " + partidoPronosticoEq2);
-                    System.out.println("resultado real => " + partido.resultadoEquipo1());
-                    System.out.println("puntos por acierto => " + pronostico.puntos() + "\n");
+                    System.out.println( participanteNombre + " "+ fase + " " + ronda + " " + partidoEq1 + " "
+                            + pronostico.getResultado() + " vs " + partidoPronosticoEq2 + " "
+                            + "resultado real => " + partido.resultadoEquipo1()
+                            + " puntos => " + pronostico.puntos());
                 }
             }
         }
+        System.out.println("\n");
     }
 
     public void agregarPronosticosParticipante(List<Participante> participanteList, List<Pronostico> pronosticoList){
