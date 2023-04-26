@@ -67,7 +67,7 @@ id_pronostico INT PRIMARY KEY AUTO_INCREMENT,
 USE prode;
 
 INSERT INTO equipo (nombre) VALUES("argentina");
-INSERT INTO equipo (nombre) VAL~~~CREATE DATABASE prode; CREATE TABLE prode.equipo(UES("arabia saudita");
+INSERT INTO equipo (nombre) VALUES("arabia saudita");
 INSERT INTO equipo (nombre)VALUES ("polonia");
 INSERT INTO equipo (nombre) VALUES("mexico");
 
@@ -85,7 +85,6 @@ INSERT INTO pronostico (id_participante, nro_ronda, id_equipo1, id_equipo2, resu
 INSERT INTO pronostico (id_participante, nro_ronda, id_equipo1, id_equipo2, resultado) VALUES(1,2,2,3,"PERDEDOR");
 INSERT INTO pronostico (id_participante, nro_ronda, id_equipo1, id_equipo2, resultado) VALUES(1,3,1,3,"GANADOR");
 INSERT INTO pronostico (id_participante, nro_ronda, id_equipo1, id_equipo2, resultado) VALUES(1,3,2,4,"PERDEDOR");
-~~~CREATE DATABASE prode; CREATE TABLE prode.equipo(
 INSERT INTO pronostico (id_participante, nro_ronda, id_equipo1, id_equipo2, resultado) VALUES(2,1,1,2,"GANADOR");
 INSERT INTO pronostico (id_participante, nro_ronda, id_equipo1, id_equipo2, resultado) VALUES(2,1,3,4,"PERDEDOR");
 INSERT INTO pronostico (id_participante, nro_ronda, id_equipo1, id_equipo2, resultado) VALUES(2,2,1,4,"GANADOR");
