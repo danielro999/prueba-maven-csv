@@ -1,46 +1,48 @@
 # prueba-maven-csv
 
-<h3>Esquemas<h3>
+### Esquemas drawio
+### [Link esquemas](https://drive.google.com/file/d/1b2Ss12_kjdYnmFD2imOndcH2X94pTYT8/view?usp=sharing)
 
-[Link esquema](https://drive.google.com/file/d/1b2Ss12_kjdYnmFD2imOndcH2X94pTYT8/view?usp=sharing)
-  
-
-
+----
 <h3> Sentencias basicas SQL <h3>
-  
+
+<details>
+   <summary>Definición de Datos (DDL)</summary>
+
+  ~~~ sql
+  CREATE DATABASE prode; 
+    
+  CREATE TABLE prode.equipo(
+      id_equipo INT PRIMARY KEY AUTO_INCREMENT,
+      nombre CHAR(50),
+      descripcion CHAR(100)); 
+
+  CREATE TABLE prode.participante(
+      id_participante INT PRIMARY KEY AUTO_INCREMENT,
+      nombre CHAR(50)); 
+
+  CREATE TABLE prode.ronda(
+      nro_ronda INT PRIMARY KEY AUTO_INCREMENT,
+      nombre_fase CHAR(80)); 
+
+  CREATE TABLE prode.pronostico(
+  id_pronostico INT PRIMARY KEY AUTO_INCREMENT,
+      id_participante INT,
+      nro_ronda INT,
+      id_equipo1 INT,
+      id_equipo2 INT,
+      resultado CHAR(8),
+      CONSTRAINT fk_equipo1 FOREIGN KEY(id_equipo1) REFERENCES equipo(id_equipo),
+      CONSTRAINT fk_equipo2 FOREIGN KEY(id_equipo2) REFERENCES equipo(id_equipo),
+      CONSTRAINT fk_participante FOREIGN KEY(id_participante) REFERENCES participante(id_participante),
+      CONSTRAINT fk_ronda FOREIGN KEY(nro_ronda) REFERENCES ronda(nro_ronda)
+    );
   ~~~
-CREATE DATABASE prode; 
-  
-CREATE TABLE prode.equipo(
-    id_equipo INT PRIMARY KEY AUTO_INCREMENT,
-    nombre CHAR(50),
-    descripcion CHAR(100)); 
+</details>
+<details>
+  <summary>Manipulación de Datos (DML)</summary>
 
-CREATE TABLE prode.participante(
-    id_participante INT PRIMARY KEY AUTO_INCREMENT,
-    nombre CHAR(50)); 
-
-CREATE TABLE prode.ronda(
-    nro_ronda INT PRIMARY KEY AUTO_INCREMENT,
-    nombre_fase CHAR(80)); 
-
-CREATE TABLE prode.pronostico(
-id_pronostico INT PRIMARY KEY AUTO_INCREMENT,
-    id_participante INT,
-    nro_ronda INT,
-    id_equipo1 INT,
-    id_equipo2 INT,
-    resultado CHAR(8),
-    CONSTRAINT fk_equipo1 FOREIGN KEY(id_equipo1) REFERENCES equipo(id_equipo),
-    CONSTRAINT fk_equipo2 FOREIGN KEY(id_equipo2) REFERENCES equipo(id_equipo),
-    CONSTRAINT fk_participante FOREIGN KEY(id_participante) REFERENCES participante(id_participante),
-    CONSTRAINT fk_ronda FOREIGN KEY(nro_ronda) REFERENCES ronda(nro_ronda)
-  );
-  ~~~
-
-
-
-  ~~~
+~~~ sql
 USE prode;
 
 INSERT INTO equipo (nombre) VALUES("argentina");
@@ -87,3 +89,17 @@ INSERT INTO pronostico (id_participante, nro_ronda, id_equipo1, id_equipo2, resu
 INSERT INTO pronostico (id_participante, nro_ronda, id_equipo1, id_equipo2, resultado) VALUES(2,3,1,3,"GANADOR");
 INSERT INTO pronostico (id_participante, nro_ronda, id_equipo1, id_equipo2, resultado) VALUES(2,3,2,4,"EMPATE");
 ~~~
+</details>
+
+---
+
+### Pendientes
+1. Completar resultado.csv con todos los partidos del mundial
+
+1. Completar base de datos con mas pronosticos y participantes
+1. Sumar los puntos extras por las fases
+1. Corregir paquetes, clases y metodos que estan en mezclados en lugares que no corresponden, reordenar(ejemplo, en la clase Calculo.instaciadorParticipantes crear paquete de fabrica con todos los clases y metodos que crear instancias de las clases, este metodo no corresponde a Calculo)
+1. Aplicar mas test (solo hay unos json sobre ConfigPuntos)
+1. Aplicar captura de errores
+1. Aplicar mas expresiones regulares(solo hay uno de prueba en crearlistapartidos comentados de prueba)
+1. Simplificar codigo pasaando de imperativo a funcinal donde se pueda(como en Participante.puntosExtras) 
