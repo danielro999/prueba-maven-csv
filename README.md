@@ -50,18 +50,36 @@ INSERT INTO equipo (nombre) VALUES("mexico");
 
 INSERT INTO ronda (nombre_fase) VALUES ("fase grupo");
 INSERT INTO ronda (nombre_fase) VALUES ("fase grupo");
+INSERT INTO ronda (nombre_fase) VALUES ("fase grupo");
+
+
+INSERT INTO ronda (nombre_fase) VALUES ("fase octavos");
+INSERT INTO ronda (nombre_fase) VALUES ("fase cuartos");
+INSERT INTO ronda (nombre_fase) VALUES ("fase semifinal");
+INSERT INTO ronda (nombre_fase) VALUES ("fase final");
+
+INSERT INTO equipo (nombre) VALUES("qatar");
+INSERT INTO equipo (nombre) VALUES("ecuador");
+INSERT INTO equipo (nombre) VALUES("senegal");
+INSERT INTO equipo (nombre) VALUES("paises bajos");
+INSERT INTO equipo (nombre) VALUES("australia");
+INSERT INTO equipo (nombre) VALUES("croacia");
+INSERT INTO equipo (nombre) VALUES("francia");
 
 
 INSERT INTO participante (nombre) VALUES ("mariana");
 INSERT INTO participante (nombre) VALUES ("pedro");
 
-INSERT INTO ronda (nombre_fase) VALUES ("fase grupo");
+
 INSERT INTO pronostico (id_participante, nro_ronda, id_equipo1, id_equipo2, resultado) VALUES(1,1,1,2,"GANADOR");
 INSERT INTO pronostico (id_participante, nro_ronda, id_equipo1, id_equipo2, resultado) VALUES(1,1,3,4,"EMPATE");
 INSERT INTO pronostico (id_participante, nro_ronda, id_equipo1, id_equipo2, resultado) VALUES(1,2,1,4,"GANADOR");
 INSERT INTO pronostico (id_participante, nro_ronda, id_equipo1, id_equipo2, resultado) VALUES(1,2,2,3,"PERDEDOR");
 INSERT INTO pronostico (id_participante, nro_ronda, id_equipo1, id_equipo2, resultado) VALUES(1,3,1,3,"GANADOR");
 INSERT INTO pronostico (id_participante, nro_ronda, id_equipo1, id_equipo2, resultado) VALUES(1,3,2,4,"PERDEDOR");
+INSERT INTO pronostico (id_participante, nro_ronda, id_equipo1, id_equipo2, resultado) VALUES(1,4,1,9,"GANADOR");
+
+
 INSERT INTO pronostico (id_participante, nro_ronda, id_equipo1, id_equipo2, resultado) VALUES(2,1,1,2,"GANADOR");
 INSERT INTO pronostico (id_participante, nro_ronda, id_equipo1, id_equipo2, resultado) VALUES(2,1,3,4,"PERDEDOR");
 INSERT INTO pronostico (id_participante, nro_ronda, id_equipo1, id_equipo2, resultado) VALUES(2,2,1,4,"GANADOR");

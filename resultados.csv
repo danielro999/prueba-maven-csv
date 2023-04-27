@@ -2,8 +2,16 @@ Ronda - id,Ronda - nro,Equipo 1 - id,Equipo 1 - nombre,Equipo 1 - descripcion,Eq
 1,1,1,argentina,Seleccionado,1,2,2,arabia saudita,Seleccionado
 1,1,3,polonia,Seleccionado,0,0,4,mexico,Seleccionado
 1,1,5,qatar,Seleccionado,0,2,6,ecuador,Seleccionado
-1,1,7,senegal,Seleccionado,0,2,8,paisesbajos,Seleccionado
+1,1,7,senegal,Seleccionado,0,2,8,paises bajos,Seleccionado
 2,2,1,argentina,Seleccionado,2,0,4,mexico,Seleccionado
 2,2,2,arabia saudita,Seleccionado,0,2,3,polonia,Seleccionado
+2,2,5,qatar,Seleccionado,1,3,7,senegal,Seleccionado
+2,2,8,paises bajos,Seleccionado,1,1,6,ecuador,Seleccionado
 3,3,1,argentina,Seleccionado,2,0,3,polonia,Seleccionado
 3,3,2,arabia saudita,Seleccionado,1,2,4,mexico,Seleccionado
+3,3,6,ecuador,Seleccionado,1,2,7,senegal,Seleccionado
+3,3,8,paises bajos,Seleccionado,2,0,5,qatar,Seleccionado
+4,4,1,argentina,Seleccionado,2,1,9,australia,Seleccionado
+5,5,1,argentina,Seleccionado,6,5,8,paises bajos,Seleccionado
+6,6,1,argentina,Seleccionado,3,0,10,croacia,Seleccionado
+7,7,1,argentina,Seleccionado,7,5,11,francia,Seleccionado
