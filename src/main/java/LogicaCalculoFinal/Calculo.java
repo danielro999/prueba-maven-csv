@@ -16,11 +16,13 @@ public class Calculo {
 
     public List<Participante> instancidorParticipantes(List<String[]> listaPronosticosString, ConfigPuntos configPuntos) {
         participanteList = new ArrayList<>();
-        //set para no repetir los nombres
+        //set para no repetir los nombres de participantes
         Set<String> setNombres = new HashSet<>();
+        // set(sin repetid) con los nombres de los participantes
         for (String[] pronosticoString : listaPronosticosString) {
             setNombres.add(pronosticoString[2]);
         }
+        // por cada String con el nombre creo una instancia de Participante,  mas los puntajes que se le van a sumar por acierto
         for (String nombre : setNombres) {
             Participante participante = new Participante(nombre, configPuntos);
             participanteList.add(participante);
